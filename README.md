@@ -10,7 +10,7 @@
 
   * Daily, weekly, and monthly views using `react-big-calendar`
   * Custom time slots with blocked dates and dynamic availability
-  * Timezone-aware scheduling (Bogota / Rome)
+  * Timezone-aware scheduling 
 
 * **👤 User Authentication**
 
@@ -49,7 +49,6 @@
 ### Booking Calendar
 
 ![Calendar view](screenshots/calendar.png)
-![Booking modal](screenshots/booking-modal.png)
 
 ---
 
