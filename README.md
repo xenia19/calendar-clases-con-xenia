@@ -1,93 +1,51 @@
-# Clases Con Xenia – Lesson Booking Calendar
+# 📅 Tutor Booking SaaS (Clases con Xenia)
+
+![Status](https://img.shields.io/badge/Status-Live_Product-success?style=for-the-badge)
+![Tech](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Backend](https://img.shields.io/badge/Node.js-Automations-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
 > An independent online scheduling system for language lessons, featuring interactive booking, automatic reminders, and Google Calendar synchronization.
 
----
+### 🎥 Live Demo (Booking & Canceling Flow)
 
-## 🌟 Features
-
-* **📅 Interactive Booking Calendar**
-
-  * Daily, weekly, and monthly views using `react-big-calendar`
-  * Custom time slots with blocked dates and dynamic availability
-  * Timezone-aware scheduling 
-
-* **👤 User Authentication**
-
-  * Email/password login with Firebase Authentication
-  * Google OAuth login
-  * Email verification and password reset
-
-* **🔄 Firebase Integration**
-
-  * Firestore database to store lessons, user credits, and bookings
-  * Live updates with `onSnapshot`
-
-* **⏰ Automated Lesson Notifications**
-
-  * Personalized email reminders to students and admin via Sendinblue API
-  * Tracks notification status in Firestore
-  * Fully automated workflow using GitHub Actions
-
-* **📅 Google Calendar Sync**
-
-  * Automatic event creation for booked lessons
-  * Event deletion when lessons are canceled
-  * Works with dynamic time zones
-
-* **⚙️ Customizable & Extendable**
-
-  * Modular architecture for frontend and backend
-  * Easily extendable for new channels, languages, or templates
+https://github.com/user-attachments/assets/239aa53b-086b-4dcd-99bd-c1e90c4a766d
 
 ---
 
-## 🖼 Screenshots
+## 🔗 Links
+* **Live App:** [clases-con-xenia.online](https://clases-con-xenia.com) *(Requires student login)*
+* **Developer Portfolio:** [Xenia's Portfolio](https://github.com/xenia19)
 
-> Since the live site requires login, screenshots demonstrate core functionality.
+## ✨ Key Features & Business Logic
 
-### Booking Calendar
+| Feature | Description |
+| :--- | :--- |
+| 💳 **Credit-Based Booking** | **(Core Feature)** Students can purchase lesson packages in advance. The system automatically tracks their balance and deducts credits upon booking. Credits are refunded if a lesson is canceled in time. |
+| 📅 **Interactive Calendar** | Daily, weekly, and monthly views using `react-big-calendar`. Custom time slots with blocked dates and dynamic timezone-aware availability. |
+| 🔄 **Google Calendar Sync** | Automatic event creation for booked lessons and automatic deletion when lessons are canceled. |
+| ⏰ **Automated Notifications** | Node.js cron jobs send personalized email reminders (via Sendinblue API) to students and the admin 24h before lessons. |
+| 🔐 **User Authentication** | Email/password login and Google OAuth via Firebase Authentication. |
+| ⚡ **Real-time Updates** | Live database synchronization with Firestore `onSnapshot`. |
 
-![Calendar view](screenshots/calendar.png)
+## 🛠️ Tech Stack
+
+* **Frontend:** React, `react-big-calendar`, `date-fns`, `moment-timezone`, CSS Modules
+* **Backend & Database:** Firebase (Auth & Firestore)
+* **Automations:** Node.js, GitHub Actions (for cron jobs)
+* **Third-Party APIs:** Google Calendar API, Sendinblue (Brevo) API
+
+## ⚙️ How It Works (User Flow)
+
+1. **Authentication:** Users log in via email or Google OAuth.
+2. **Balance Check:** The system reads the user's pre-paid lesson balance from Firestore.
+3. **Booking:** * Users select available time slots.
+   * Availability is calculated dynamically based on the tutor's timezone and overlapping existing bookings.
+   * Upon confirmation, a credit is deducted from the user's balance.
+4. **Synchronization:** The lesson is saved in Firestore, which triggers an update to the Google Calendar API.
+5. **Reminders:** A GitHub Actions workflow runs a Node.js script daily to find upcoming lessons and dispatch email reminders via Sendinblue.
+
+## 📦 Architecture Note
+This project uses a modular architecture separating the React frontend from the Node.js automation scripts, making it easily extendable for new notification channels (e.g., WhatsApp/Telegram) or multi-language email templates.
 
 ---
-
-## 💻 Tech Stack
-
-* **Frontend:** React, react-big-calendar, date-fns, moment-timezone, CSS
-* **Backend / Notifications:** Firebase (Auth & Firestore), Node.js, Sendinblue API
-* **APIs:** Google Calendar API
-* **Deployment:** GitHub Pages (frontend), GitHub Actions (notifications)
-
----
-
-## 🚀 Live Demo
-
-[https://clases-con-xenia.online](https://clases-con-xenia.online)
-
----
-
-## ⚡ How It Works
-
-1. **Booking Lessons**
-
-   * Users select time slots on the calendar
-   * Slot availability depends on timezone, blocked dates, and overlapping bookings
-   * Lessons are saved in Firestore
-
-2. **Authentication & User Flow**
-
-   * Email/password login or Google OAuth
-   * Users can see upcoming lessons, balance, and delete their bookings
-
-3. **Notifications**
-
-   * Automated reminders sent to students and admin before lessons
-   * Email content customizable via Sendinblue templates
-   * Status tracked in Firestore
-
-4. **Google Calendar Sync**
-
-   * Once authorized, lessons are automatically added to Google Calendar
-   * Deleting a lesson removes the event from Google Calendar
-
+*© 2026 Xenia Galaktionova. All rights reserved.*
