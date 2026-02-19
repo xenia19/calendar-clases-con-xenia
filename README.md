@@ -10,11 +10,8 @@
 
 https://github.com/user-attachments/assets/239aa53b-086b-4dcd-99bd-c1e90c4a766d
 
----
-
 ## 🔗 Links
-* **Live App:** [clases-con-xenia.online](https://clases-con-xenia.com) *(Requires student login)*
-* **Developer Portfolio:** [Xenia's Portfolio](https://github.com/xenia19)
+* **Live App:** [clases-con-xenia.com](https://clases-con-xenia.com) *(Requires student login)*
 
 ## ✨ Key Features & Business Logic
 
